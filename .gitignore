@@ -1,0 +1,16 @@
+node_modules
+dist
+out
+coverage
+*.vsix
+.vscode-test
+.vsix-inspect
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+secrets/

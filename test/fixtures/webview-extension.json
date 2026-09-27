@@ -1,0 +1,14 @@
+{
+  "name": "webview-extension",
+  "displayName": "Webview Extension",
+  "publisher": "example",
+  "version": "5.0.0",
+  "description": "Contributes a webview view.",
+  "activationEvents": ["onView:example.panel"],
+  "contributes": {
+    "views": {
+      "explorer": [{ "id": "example.panel", "name": "Example", "type": "webview" }]
+    },
+    "customEditors": [{ "viewType": "example.editor", "displayName": "Example Editor" }]
+  }
+}

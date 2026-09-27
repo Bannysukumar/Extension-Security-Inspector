@@ -1,0 +1,17 @@
+{
+  "name": "normal-extension",
+  "displayName": "Normal Extension",
+  "publisher": "example",
+  "version": "1.2.3",
+  "description": "A typical editor helper.",
+  "engines": { "vscode": "^1.96.0" },
+  "activationEvents": ["onLanguage:markdown"],
+  "main": "./out/extension.js",
+  "repository": { "type": "git", "url": "https://example.com/normal-extension" },
+  "homepage": "https://example.com/normal-extension",
+  "categories": ["Other"],
+  "keywords": ["demo"],
+  "contributes": {
+    "commands": [{ "command": "normal.hello", "title": "Hello", "category": "Normal" }]
+  }
+}

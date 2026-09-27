@@ -1,0 +1,15 @@
+{
+  "name": "commands-extension",
+  "displayName": "Commands Extension",
+  "publisher": "example",
+  "version": "2.0.0",
+  "description": "Contributes several commands.",
+  "activationEvents": ["onCommand:commands.run"],
+  "contributes": {
+    "commands": [
+      { "command": "commands.run", "title": "Run", "category": "Commands" },
+      { "command": "commands.other", "title": "Other" }
+    ],
+    "keybindings": [{ "command": "commands.run", "key": "ctrl+alt+r" }]
+  }
+}

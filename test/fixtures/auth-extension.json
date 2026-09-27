@@ -1,0 +1,11 @@
+{
+  "name": "auth-extension",
+  "displayName": "Auth Extension",
+  "publisher": "example",
+  "version": "4.0.0",
+  "description": "Contributes an authentication provider.",
+  "activationEvents": ["onAuthenticationRequest:example"],
+  "contributes": {
+    "authentication": [{ "id": "example", "label": "Example Auth" }]
+  }
+}

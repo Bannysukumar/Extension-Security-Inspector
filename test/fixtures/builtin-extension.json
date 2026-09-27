@@ -1,0 +1,12 @@
+{
+  "name": "builtin-helper",
+  "displayName": "Built-in Helper",
+  "publisher": "vscode",
+  "version": "1.0.0",
+  "description": "Simulated built-in extension.",
+  "isBuiltin": true,
+  "activationEvents": ["*"],
+  "contributes": {
+    "languages": [{ "id": "plaintext", "aliases": ["Plain Text"] }]
+  }
+}

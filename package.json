@@ -1,0 +1,269 @@
+{
+  "name": "extension-security-inspector",
+  "displayName": "Extension Security Inspector",
+  "description": "Understand what your VS Code extensions can do. Inspect extension metadata, capabilities, contribution points, and security-relevant indicators locally.",
+  "version": "0.1.1",
+  "publisher": "bannysukumar2255",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#0B1F33",
+    "theme": "dark"
+  },
+  "preview": true,
+  "qna": "marketplace",
+  "engines": {
+    "vscode": "^1.96.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "security",
+    "audit",
+    "extensions",
+    "permissions",
+    "capabilities",
+    "privacy",
+    "inventory",
+    "review"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extensionSecurityInspector.auditAll",
+        "title": "Extension Security Inspector: Run Audit",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "extensionSecurityInspector.auditSelected",
+        "title": "Extension Security Inspector: Audit Selected Extension",
+        "icon": "$(search)"
+      },
+      {
+        "command": "extensionSecurityInspector.exportReport",
+        "title": "Extension Security Inspector: Export Security Report",
+        "icon": "$(export)"
+      },
+      {
+        "command": "extensionSecurityInspector.refresh",
+        "title": "Extension Security Inspector: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "extensionSecurityInspector.openSettings",
+        "title": "Extension Security Inspector: Open Settings",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "extensionSecurityInspector.compare",
+        "title": "Extension Security Inspector: Compare Extensions",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "extensionSecurityInspector.search",
+        "title": "Extension Security Inspector: Search",
+        "icon": "$(search)"
+      },
+      {
+        "command": "extensionSecurityInspector.openOverview",
+        "title": "Extension Security Inspector: Open Overview",
+        "icon": "$(home)"
+      },
+      {
+        "command": "extensionSecurityInspector.openPrivacy",
+        "title": "Extension Security Inspector: Open Privacy",
+        "icon": "$(lock)"
+      },
+      {
+        "command": "extensionSecurityInspector.openExtension",
+        "title": "Extension Security Inspector: Open Extension Detail"
+      },
+      {
+        "command": "extensionSecurityInspector.openCapability",
+        "title": "Extension Security Inspector: Open Capability"
+      },
+      {
+        "command": "extensionSecurityInspector.openReports",
+        "title": "Extension Security Inspector: Open Reports"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "extensionSecurityInspector",
+          "title": "Security Inspector",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "extensionSecurityInspector": [
+        {
+          "id": "extensionSecurityInspector.mainView",
+          "name": "Security Inspector",
+          "icon": "media/icon.svg",
+          "contextualTitle": "Extension Security Inspector"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "extensionSecurityInspector.mainView",
+        "contents": "Extension Security Inspector audits installed extensions locally using declared metadata and contribution points.\nThis is not a malware verdict.\n[Run Audit](command:extensionSecurityInspector.auditAll)\n[Open Settings](command:extensionSecurityInspector.openSettings)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "extensionSecurityInspector.auditAll",
+          "when": "view == extensionSecurityInspector.mainView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "extensionSecurityInspector.refresh",
+          "when": "view == extensionSecurityInspector.mainView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "extensionSecurityInspector.exportReport",
+          "when": "view == extensionSecurityInspector.mainView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "extensionSecurityInspector.search",
+          "when": "view == extensionSecurityInspector.mainView",
+          "group": "navigation@4"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "extensionSecurityInspector.auditSelected",
+          "when": "view == extensionSecurityInspector.mainView && viewItem == extension",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "extensionSecurityInspector.auditAll"
+        },
+        {
+          "command": "extensionSecurityInspector.auditSelected"
+        },
+        {
+          "command": "extensionSecurityInspector.exportReport"
+        },
+        {
+          "command": "extensionSecurityInspector.refresh"
+        },
+        {
+          "command": "extensionSecurityInspector.openSettings"
+        },
+        {
+          "command": "extensionSecurityInspector.compare"
+        },
+        {
+          "command": "extensionSecurityInspector.search"
+        },
+        {
+          "command": "extensionSecurityInspector.openOverview"
+        },
+        {
+          "command": "extensionSecurityInspector.openPrivacy"
+        },
+        {
+          "command": "extensionSecurityInspector.openExtension",
+          "when": "false"
+        },
+        {
+          "command": "extensionSecurityInspector.openCapability",
+          "when": "false"
+        },
+        {
+          "command": "extensionSecurityInspector.openReports",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Extension Security Inspector",
+      "properties": {
+        "extensionSecurityInspector.showBuiltinExtensions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include built-in VS Code extensions in audits and inventory views. Built-in extensions are still never modified."
+        },
+        "extensionSecurityInspector.includeDisabledExtensions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include disabled extensions when they can be discovered safely from local installation metadata."
+        },
+        "extensionSecurityInspector.scanDependencies": {
+          "type": "boolean",
+          "default": false,
+          "description": "Optionally read local package.json and lockfile metadata for a dependency overview. Never installs packages, never runs lifecycle scripts, and never downloads vulnerability data unless a trusted local source is present."
+        },
+        "extensionSecurityInspector.showUnknownCapabilities": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show findings when metadata is missing, incomplete, or cannot be classified with confidence."
+        },
+        "extensionSecurityInspector.autoAudit": {
+          "type": "boolean",
+          "default": false,
+          "description": "When enabled, run a local audit on startup and when the installed extension set changes. Scans are debounced and never run continuously."
+        },
+        "extensionSecurityInspector.reportDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Optional directory for exported reports. Leave empty to choose a location when exporting. Reports never include secrets, source code, or workspace file contents."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run check-types && node esbuild.js --production",
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit -p tsconfig.json",
+    "watch": "node esbuild.js --watch",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "npm run compile && tsc -p tsconfig.integration.json && node ./out/test/runTest.js",
+    "package": "vsce package --no-dependencies --allow-missing-repository",
+    "vsce:package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/mocha": "^10.0.10",
+    "mocha": "^11.1.0",
+    "@types/node": "^22.13.10",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.2.2",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1",
+    "vitest": "^3.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bannysukumar2255/extension-security-inspector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bannysukumar2255/extension-security-inspector/issues"
+  },
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=bannysukumar2255.extension-security-inspector"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "tasks-extension",
+  "displayName": "Tasks Extension",
+  "publisher": "example",
+  "version": "3.0.0",
+  "description": "Contributes tasks and a terminal profile.",
+  "activationEvents": ["onCommand:tasks.run"],
+  "contributes": {
+    "taskDefinitions": [{ "type": "exampleTask" }],
+    "terminal": { "profiles": [{ "id": "example.profile", "title": "Example Profile" }] }
+  }
+}

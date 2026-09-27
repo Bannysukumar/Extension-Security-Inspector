@@ -1,0 +1,23 @@
+{
+  "name": "network-extension",
+  "displayName": "Network Extension",
+  "publisher": "example",
+  "version": "6.0.0",
+  "description": "Has network-related settings.",
+  "activationEvents": ["onUri"],
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "network.endpoint": {
+          "type": "string",
+          "default": "https://api.example.com",
+          "description": "Service endpoint URL"
+        },
+        "network.executablePath": {
+          "type": "string",
+          "description": "Path to an executable used by the helper"
+        }
+      }
+    }
+  }
+}

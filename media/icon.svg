@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Extension Security Inspector">
+  <rect width="128" height="128" rx="28" fill="#0B1F33"/>
+  <path d="M64 22c14 8 28 8 36 8v28c0 22-14 36-36 48-22-12-36-26-36-48V30c8 0 22 0 36-8z" fill="#1F8A70"/>
+  <path d="M64 32c10 6 20 6 26 6v20c0 16-10 26-26 34-16-8-26-18-26-34V38c6 0 16 0 26-6z" fill="#166352"/>
+  <circle cx="62" cy="58" r="12" fill="none" stroke="#7FDBDA" stroke-width="5"/>
+  <path d="M71 67l14 14" fill="none" stroke="#7FDBDA" stroke-width="5" stroke-linecap="round"/>
+  <path d="M56 58l4 4 8-9" fill="none" stroke="#F4FFF8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

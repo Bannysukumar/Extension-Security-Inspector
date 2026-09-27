@@ -1,0 +1,9 @@
+dist
+out
+node_modules
+coverage
+*.vsix
+package-lock.json
+test/fixtures/malformed-package.json
+.vscode-test
+.vsix-inspect
