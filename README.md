@@ -1,39 +1,55 @@
+<!-- readme-seo: bannysukumar-professional-v4 -->
+
 # Extension Security Inspector
 
-Understand what your installed VS Code extensions can do.
-
-[![License](https://img.shields.io/github/license/Bannysukumar/Extension-Security-Inspector)](https://github.com/Bannysukumar/Extension-Security-Inspector/blob/main/LICENSE) [![Stars](https://img.shields.io/github/stars/Bannysukumar/Extension-Security-Inspector)](https://github.com/Bannysukumar/Extension-Security-Inspector/stargazers) [![Last commit](https://img.shields.io/github/last-commit/Bannysukumar/Extension-Security-Inspector)](https://github.com/Bannysukumar/Extension-Security-Inspector/commits/main)
+Extension Security Inspector is a VS Code extension that inspects installed extension metadata locally. The package description says it shows capabilities, contribution points, and security-relevant indicators. It does not say an extension is safe or unsafe, and it does not detect malware.
 
 ## Overview
 
-Understand what your installed VS Code extensions can do.
+`package.json` names the extension `extension-security-inspector`, version 0.1.1, publisher `bannysukumar2255`. It requires VS Code `^1.96.0` and Node.js 18 or newer. The implementation is TypeScript under `src/`, bundled with esbuild. Tests use Vitest (`vitest.config.ts`).
 
+The analyzer files cover extension scanning, manifest parsing, capability analysis, dependency analysis, and findings. Commands in `src/commands` are audit all, audit selected, and export report.
 
-What is actually in the repository: `.vscode/`, `media/`, `src/`, `test/`. GitHub reports the primary language as TypeScript.
+## Features
+
+- Local scan of installed extension metadata
+- Manifest, capability, dependency, and findings analyzers
+- Commands `auditAll`, `auditSelected`, and `exportReport`
+- Tree providers for extensions and security findings
+
+## Tech Stack
+
+| Technology | Where it shows up |
+|---|---|
+| TypeScript | `tsconfig.json` and `src/` |
+| VS Code extension API | `engines.vscode` and `src/extension.ts` |
+| esbuild | `esbuild.js` |
+| Vitest | `vitest.config.ts` |
+
+## Architecture
+
+VS Code extension host → `src/extension.ts` → analyzer modules in `src/analyzer` → audit and report services.
 
 ## Project Structure
 
 ```text
 Extension-Security-Inspector/
-├── .vscode/
+├── src/analyzer/
+├── src/commands/
+├── src/providers/
+├── src/services/
 ├── media/
-├── src/
-├── test/
-├── .prettierignore
-├── .prettierrc.json
-├── .vscode-test.mjs
-├── .vscodeignore
-├── CHANGELOG.md
-├── esbuild.js
-├── eslint.config.mjs
-├── package-lock.json
 ├── package.json
-├── tsconfig.integration.json
-├── tsconfig.json
-├── vitest.config.ts
+├── esbuild.js
+└── vitest.config.ts
 ```
 
-## Getting Started
+## Prerequisites
+
+- VS Code 1.96 or newer
+- Node.js 18 or newer
+
+## Installation
 
 ```bash
 git clone https://github.com/Bannysukumar/Extension-Security-Inspector.git
@@ -41,18 +57,26 @@ cd Extension-Security-Inspector
 npm install
 ```
 
+Package and run the extension from the VS Code extension host. `engines.vscode` is the version floor.
+
+## Usage
+
+Run the audit commands from the extension. Review findings in the editor. The extension reports declared capabilities. It does not classify an extension as safe or unsafe.
+
+## Testing
+
+`vitest.config.ts` and `src/test` are present.
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 
-Licensed under MIT. See [LICENSE](LICENSE).
+Licensed under MIT. See [LICENSE](LICENSE). `package.json` also sets `"license": "MIT"`.
 
 ## Author
 
-[Banny Sukumar](https://github.com/Bannysukumar)
+Banny Sukumar
 
-- GitHub: [@Bannysukumar](https://github.com/Bannysukumar)
-- Portfolio: [adepu-sukumar.vercel.app](https://adepu-sukumar.vercel.app/)
-- LinkedIn: [Adepu Sukumar](https://www.linkedin.com/in/adepu-sukumar-59b423351)
+GitHub: https://github.com/Bannysukumar
