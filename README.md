@@ -221,3 +221,13 @@ Each release will keep the same rule: no malware verdicts, no hidden telemetry, 
 - License: [MIT](LICENSE)
 
 If something looks incomplete, treat the result as **Unknown** and review the publisher or source yourself.
+
+<!-- readme-seo: bannysukumar -->
+
+## Open source
+
+This repository is open source and maintained by [Banny Sukumar](https://github.com/Bannysukumar). Extension Security Inspector is published so other developers can study the code and contribute.
+
+## License
+
+Released under the [MIT License](LICENSE). Copyright (c) 2026 Banny Sukumar. See [CONTRIBUTING.md](CONTRIBUTING.md) if you want to help.
